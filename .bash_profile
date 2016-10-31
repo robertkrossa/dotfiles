@@ -1,0 +1,4 @@
+export PATH=$PATH:/Users/krossa/Library/Android/sdk/platform-tools/
+export PATH="$HOME/.npm-packages/bin:$PATH"
+export PATH=$PATH:/usr/local/git/bin
+if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
