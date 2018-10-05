@@ -1,4 +1,3 @@
-alias sshdev="ssh krossa@krossa.aka.corp.amazon.com"
 alias ..="cd .."
 alias ...="cd ../.."
 alias l="ls -al"

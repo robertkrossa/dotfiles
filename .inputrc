@@ -1,2 +1,10 @@
 "\e[Z":complete
 TAB:menu-complete
+set show-all-if-ambiguous on
+
+set editing-mode vi
+
+$if mode=vi
+	set keymap vi-insert
+	"jj": vi-movement-mode
+$endif
