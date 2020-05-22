@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/krossa/.oh-my-zsh
+export ZSH=/Users/robertkrossa/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -51,7 +51,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux iterm2)
+plugins=(git tmux iterm2 z yarn ruby postgres nvm gpg-agent yarn rails)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -62,15 +62,21 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Example aliases
 alias ..="cd ..; pwd;"
 alias ...="cd ../..; pwd;"
 alias ....="cd ../../../; pwd;"
 alias l="pwd; ls -al"
 alias adbscreencap="adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > " 
+alias gitc="git commit"
+alias branch_search="git branch | fzf | xargs git checkout"
+alias gco="branch_search"
+alias branch_delete="git branch | fzf | xargs git branch -d"
+alias gs="git status"
 
+# Flexport
+source ~/.flexport_zshrc
 #Histroy & Backwards search settings
-export HISTFILE="/Users/krossa/.zsh_history"
+export HISTFILE="/Users/robertkrossa/.zsh_history"
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000
 export SAVEHIST=1000000
@@ -86,30 +92,21 @@ autoload -U compinit && compinit
 
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
 
-export DEFAULT_USER=krossa 
 prompt_context(){}
 
-export PATH="/Users/krossa/Library/Android/sdk/platform-tools/:$PATH"
 export PATH="/usr/local/git/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.toolbox/bin:$PATH"
 export PATH="$PATH:/usr/local/Cellar/node/9.5.0/bin"
-
-#Android
-export ANDROID_HOME=/usr/local/opt/android-sdk
-export ANDROID_SDK_ROOT=/Users/krossa/Library/Android/sdk
 
 #Ruby
 if 
     which rbenv > /dev/null; then eval "$(rbenv init -)";
 fi
 
-#Toolbox
-
-
 #Node/NPM Configuration 
 
-export NPM_PACKAGES=/Users/krossa/.npm-packages
+export NPM_PACKAGES=/Users/robertkrossa/.npm-packages
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 export PATH="$NPM_PACKAGES/bin:$PATH"
 
@@ -119,8 +116,21 @@ export SSH_AUTH_SOCK=$MSSH_AUTH_SOCK # MIDWAY SSH-AGENT: set as default
 
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-nvm use 0
-source ~/.bam_profile
+[[ -s "$(brew --prefix nvm)/nvm.sh" ]] && \. "$(brew --prefix nvm)/nvm.sh"  # This loads nvm
+[[ -s "$NVM_DIR/bash_completion" ]] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm use 12.16.0 # CHANGE ME IF WE CHANGE
 
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export PATH="$PATH:$HOME/.rvm/bin"
+
+#Github 
+export GITHUB_USERNAME='robert.krossa'
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
