@@ -1,5 +1,8 @@
 # This is Git's per-user configuration file.
 [user]
+	name = Robert Krossa
+	email = robert.krossa@gmail.com
+	username = robert-krossa
 # Please adapt and uncomment the following lines:
 [color]
 	ui = auto
@@ -7,7 +10,12 @@
 	pager = less -FMRiX
 	excludesfile = ~/.config/git/excludes
 [push]
-	default = simple
+	default = current
 [alias]
 	dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+	co = checkout
+[merge]
+	conflictstyle = diff3
+[branch]
+  sort = -authordate
