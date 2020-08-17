@@ -51,7 +51,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux iterm2 z yarn ruby postgres nvm gpg-agent yarn rails)
+plugins=(git iterm2 z yarn ruby postgres nvm gpg-agent yarn rails)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -67,11 +67,18 @@ alias ...="cd ../..; pwd;"
 alias ....="cd ../../../; pwd;"
 alias l="pwd; ls -al"
 alias adbscreencap="adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > " 
-alias gitc="git commit"
+
+# Git
 alias branch_search="git branch | fzf | xargs git checkout"
 alias gco="branch_search"
 alias branch_delete="git branch | fzf | xargs git branch -d"
 alias gs="git status"
+alias gc="git commit"
+alias gc!="git commit --amend"
+alias grc="git rebase --continue"
+alias gra="git rebase --abort"
+alias gp="git push"
+alias gp!="git push --force"
 
 # Flexport
 source ~/.flexport_zshrc
