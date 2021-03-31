@@ -37,7 +37,7 @@ ZSH_THEME="agnoster"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -133,7 +133,7 @@ nvm use 12.16.0 # CHANGE ME IF WE CHANGE
 export PATH="$PATH:$HOME/.rvm/bin"
 
 #Github 
-export GITHUB_USERNAME='robert.krossa'
+export GITHUB_USERNAME='robert-krossa'
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -141,3 +141,4 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export GIT_TRACE=0 # make a 1 to see what git commands are being run

@@ -1,8 +1,8 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Robert Krossa
-	email = robert.krossa@gmail.com
-	username = robertkrossa
+	email = robert.krossa@flexport.com
+	username = robert-krossa
 # Please adapt and uncomment the following lines:
 [color]
 	ui = auto
@@ -17,5 +17,6 @@
 	co = checkout
 [merge]
 	conflictstyle = diff3
+	renamelimit = 4000
 [branch]
   sort = -authordate
