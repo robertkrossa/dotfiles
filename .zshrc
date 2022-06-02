@@ -51,7 +51,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git iterm2 z yarn ruby postgres nvm gpg-agent yarn rails)
+plugins=(git iterm2 z yarn ruby postgres nvm gpg-agent yarn rails heroku)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -79,6 +79,7 @@ alias grc="git rebase --continue"
 alias gra="git rebase --abort"
 alias gp="git push"
 alias gp!="git push --force"
+alias doctor_cycle_time="git rebase master --exec \"git commit --amend --date=\"`date`\" -n --no-edit\""
 
 # Flexport
 source ~/.flexport_zshrc
@@ -123,9 +124,10 @@ export SSH_AUTH_SOCK=$MSSH_AUTH_SOCK # MIDWAY SSH-AGENT: set as default
 
 
 export NVM_DIR="$HOME/.nvm"
+export NVM_LAZY_LOAD=true
 [[ -s "$(brew --prefix nvm)/nvm.sh" ]] && \. "$(brew --prefix nvm)/nvm.sh"  # This loads nvm
 [[ -s "$NVM_DIR/bash_completion" ]] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-nvm use 12.16.0 # CHANGE ME IF WE CHANGE
+nvm use 12.22.6 # CHANGE ME IF WE CHANGE
 
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
