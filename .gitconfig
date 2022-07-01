@@ -1,8 +1,8 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Robert Krossa
-	email = robert.krossa@flexport.com
-	username = robert-krossa
+	email = robert@weavegrid.com
+	username = robertkrossa
 # Please adapt and uncomment the following lines:
 [color]
 	ui = auto

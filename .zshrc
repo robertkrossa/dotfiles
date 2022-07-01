@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/robertkrossa/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -51,7 +51,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git iterm2 z yarn ruby postgres nvm gpg-agent yarn rails heroku)
+plugins=(git iterm2 z yarn postgres nvm gpg-agent yarn python docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -79,12 +79,13 @@ alias grc="git rebase --continue"
 alias gra="git rebase --abort"
 alias gp="git push"
 alias gp!="git push --force"
-alias doctor_cycle_time="git rebase master --exec \"git commit --amend --date=\"`date`\" -n --no-edit\""
+alias sfm="git fetch origin master:master; git rebase master"
+alias doctor_cycle_time="git rebase main --exec \"git commit --amend --date=\"`date`\" -n --no-edit\""
 
-# Flexport
-source ~/.flexport_zshrc
+# Weavegrid
+source $HOME/.weavegrid_zshrc
 #Histroy & Backwards search settings
-export HISTFILE="/Users/robertkrossa/.zsh_history"
+export HISTFILE=$HOME/.zsh_history
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000
 export SAVEHIST=1000000
@@ -93,7 +94,7 @@ setopt share_history
 bindkey '^R' history-incremental-search-backward
 
 #Z
-. /usr/local/etc/profile.d/z.sh
+. /opt/homebrew/etc/profile.d/z.sh
 
 # Tab Completion
 autoload -U compinit && compinit
@@ -106,6 +107,7 @@ export PATH="/usr/local/git/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.toolbox/bin:$PATH"
 export PATH="$PATH:/usr/local/Cellar/node/9.5.0/bin"
+export PATH="$PATH:$HOME/dotfiles/bin"
 
 #Ruby
 if 
@@ -114,7 +116,7 @@ fi
 
 #Node/NPM Configuration 
 
-export NPM_PACKAGES=/Users/robertkrossa/.npm-packages
+export NPM_PACKAGES=$HOME/.npm-packages
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 export PATH="$NPM_PACKAGES/bin:$PATH"
 
@@ -127,7 +129,7 @@ export NVM_DIR="$HOME/.nvm"
 export NVM_LAZY_LOAD=true
 [[ -s "$(brew --prefix nvm)/nvm.sh" ]] && \. "$(brew --prefix nvm)/nvm.sh"  # This loads nvm
 [[ -s "$NVM_DIR/bash_completion" ]] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-nvm use 12.22.6 # CHANGE ME IF WE CHANGE
+nvm use 16 # CHANGE ME IF WE CHANGE
 
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
@@ -135,12 +137,15 @@ nvm use 12.22.6 # CHANGE ME IF WE CHANGE
 export PATH="$PATH:$HOME/.rvm/bin"
 
 #Github 
-export GITHUB_USERNAME='robert-krossa'
+export GITHUB_USERNAME='robertkrossa'
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 export GIT_TRACE=0 # make a 1 to see what git commands are being run
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
