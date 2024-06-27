@@ -80,7 +80,8 @@ alias gra="git rebase --abort"
 alias gp="git push"
 alias gp!="git push --force"
 alias sfm="git fetch origin master:master; git rebase master"
-alias doctor_cycle_time="git rebase main --exec \"git commit --amend --date=\"`date`\" -n --no-edit\""
+alias sfmain="git fetch origin main:main; git rebase main"
+alias doctor_cycle_time="git rebase master --exec \"git commit --amend --date=\"`date`\" -n --no-edit\""
 
 # Weavegrid
 source $HOME/.weavegrid_zshrc
@@ -129,7 +130,7 @@ export NVM_DIR="$HOME/.nvm"
 export NVM_LAZY_LOAD=true
 [[ -s "$(brew --prefix nvm)/nvm.sh" ]] && \. "$(brew --prefix nvm)/nvm.sh"  # This loads nvm
 [[ -s "$NVM_DIR/bash_completion" ]] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-nvm use 16 # CHANGE ME IF WE CHANGE
+nvm use 18 # CHANGE ME IF WE CHANGE
 
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
@@ -149,3 +150,5 @@ export GIT_TRACE=0 # make a 1 to see what git commands are being run
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

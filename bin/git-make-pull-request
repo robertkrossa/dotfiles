@@ -2,5 +2,6 @@
 if ! [ -z "$1" ]; then
       BASE="$1..."
 fi
+git push
 GIT_URL="https://github.com/`git remote -v | grep origin | grep fetch | perl -np -e 's/.*git\@github.com:(.*?)(\.git)?\s.*/\1/'`"
 open "$GIT_URL/compare/$BASE`git rev-parse --abbrev-ref HEAD`?expand=1"
