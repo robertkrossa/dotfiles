@@ -1,0 +1,7 @@
+
+ alias d_test="docker exec -e DISABLE_LOGS_FOR_TESTING=1 -it $CONTAINER pytest $TEST_PATH -k"
+ upload-to-s3() {
+  docker exec -it localstack awslocal s3api create-bucket --bucket $PATH_NAME --create-bucket-configuration LocationConstraint=us-west-2
+  aws --endpoint-url=http://localhost:4566 s3 cp $LOCAL_PATH $S3_PATH  --recursive
+}
+
