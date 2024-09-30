@@ -84,7 +84,6 @@ alias sfmain="git fetch origin main:main; git rebase main"
 alias doctor_cycle_time="git rebase master --exec \"git commit --amend --date=\"`date`\" -n --no-edit\""
 
 # Weavegrid
-source $HOME/.weavegrid_zshrc
 #Histroy & Backwards search settings
 export HISTFILE=$HOME/.zsh_history
 export HISTFILESIZE=1000000000
