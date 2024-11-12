@@ -13,8 +13,7 @@ rm -rf fonts
 
 brew install z
 brew install nvm
-nvm install 16
-brew install ezf
+brew install fzf
 brew install awscli
 brew install gh
 brew install rg
