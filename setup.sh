@@ -5,7 +5,8 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 ln -s ~/dotfiles/.zshrc ~/
 ln -s ~/dotfiles/.vimrc ~/
 ln -s ~/dotfiles/.inputrc ~/
-ln -s .gitconfig/.gitconfig ~/
+ln -s ~/dotfiles/.gitconfig ~/
+ln -s ~/dotfiles/.zprofile ~/
 
 git clone https://github.com/powerline/fonts.git --depth=1
 ./fonts/install.sh

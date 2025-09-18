@@ -13,10 +13,10 @@ set ruler
 set history=500
 imap jj <Esc>
 noremap K i<CR><Esc>
-syntax on
+"syntax on
 colorscheme desert
 filetype on
 filetype indent on
-filetype plugin on
+"filetype plugin on
 set rtp+=/usr/local/opt/fzf "fuzzy search
 vnoremap y y:call system('pbcopy', @")<CR>
